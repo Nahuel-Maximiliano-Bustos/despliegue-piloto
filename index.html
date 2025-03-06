@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martín Juez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Resources/logo.png">
+</head>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="Resources/logo2.png" alt="">
+            <ul>
+                <li><a href="#¿Quien Soy?">¿Quien Soy?</a></li>
+                <li><a href="#Córdoba del Futuro">Córdoba del Futuro</a></li>
+                <li><a href="#Córdoba-Invisible">Córdoba Invisible</a></li>
+                <li><a href="#Concejo Deliberante">Concejo Deliberante</a></li>
+                <li><a href="#Frente-Civico">Frente Civico</a></li>
+                <li><a href="#estudio-juridico">Estudio Jurídico</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--Seccion Sobre Mi-->
+        <section id="¿Quien Soy?">
+            <div class="about-container">
+                <div class="about-content">
+                    <h1>¿Quien Soy?</h1>
+                    <p>
+                        Soy <strong>Martín Juez</strong>, abogado y dirigente político, comprometido con transformar <strong>Córdoba</strong> en una ciudad <strong>moderna, segura y libre</strong>.  
+                        Para mí, la política no es un privilegio, sino una <strong>responsabilidad</strong>, y estoy dispuesto a confrontar a quien sea necesario por el bienestar de cada cordobés.  
+                        Crecí viendo a mi padre, <strong>Luis Juez</strong>, luchar contra la <strong>corrupción</strong>, y entendí que no se puede ser indiferente cuando la injusticia se vuelve costumbre.  
+                        Soy <strong>abogado</strong> egresado de la <strong>Universidad Nacional de Córdoba</strong>, con especialización en <strong>España</strong>, pero mi formación real fue en la <strong>calle</strong>, escuchando a la gente.  
+                        Como presidente de la <strong>Juventud del Frente Cívico</strong>, construimos la oposición juvenil más fuerte de la provincia, y luego, como <strong>concejal</strong>, trabajé sin descanso por una Córdoba mejor.  
+                        Mi visión es una ciudad <strong>eficiente</strong>, con <strong>servicios de calidad</strong>, <strong>impuestos bajos</strong> y un Estado que deje de despilfarrar recursos.  
+                        No acepto que salir a la calle sea un peligro o que los cordobeses paguen tasas abusivas mientras la política se llena de privilegios.  
+                        Presento proyectos para mejorar la vida de los ciudadanos y <strong>denuncio cada acto de corrupción</strong> que encuentro.  
+                        Creo en una política cercana, por eso creé <strong>"Oficina Abierta"</strong>, un espacio donde los vecinos traen sus inquietudes.  
+                        También recorro los barrios, expongo lo que el poder esconde y sigo peleando por una Córdoba digna.  
+                        A los <strong>jóvenes</strong> les digo: sé que muchos desconfían de la política, pero este sistema que nos quiere callados <strong>se terminó</strong>.  
+                        Es nuestra generación la que debe desafiar la <strong>vieja política</strong> y cambiar el rumbo de la ciudad.  
+                        Si estás leyendo esto, es porque todavía creés que podemos hacer la diferencia.  
+                        Y te aseguro que <strong>no pienso rendirme</strong>.
+                    </p>
+                </div>
+                <div class="logos">
+                    <img src="Resources/logo.png" alt="Martín Juez">
+                </div>
+            </div>
+            <div class="counter-container">
+                <div class="counter-item">
+                    <div class="counter" id="counter1">+0</div>
+                    <p>Barrios visitados</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter" id="counter2">+0</div>
+                    <p>Proyectos presentados</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter" id="counter3">+0</div>
+                    <p>Personas beneficiadas</p>
+                </div>
+            </div>
+        </section>
+        
+        <!--Seccion de Cordoba del futuro-->
+        <section id="Córdoba del Futuro">
+            <h1>Córdoba del Futuro</h1>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item" style="transform: rotateY(0deg) translateZ(400px);">
+                        <h2>Empowerment Zone</h2>
+                        <div class="separator"></div>
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Innovación y emprendimiento.</p>
+                        <button class="tramites-boton" onclick="abrirVentana('Empowerment Zone', 'Innovación y emprendimiento impulsando el crecimiento de startups y tecnologías emergentes.')" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">Ver más</button>
+                    </div>
+                    <div class="carousel-item" style="transform: rotateY(90deg) translateZ(400px);">
+                        <h2>Córdoba hacia arriba</h2>
+                        <div class="separator"></div>
+                        <i class="fas fa-city"></i>
+                        <p>Desarrollo urbano sostenible.</p>
+                        <button class="tramites-boton" onclick="abrirVentana('Córdoba hacia arriba', 'Proyectos de urbanismo verde y expansión sostenible en la ciudad.')" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">Ver más</button>
+                    </div>
+                    <div class="carousel-item" style="transform: rotateY(180deg) translateZ(400px);">
+                        <h2>Movilidad Digital</h2>
+                        <div class="separator"></div>
+                        <i class="fas fa-car"></i>
+                        <p>Transporte inteligente.</p>
+                        <button class="tramites-boton" onclick="abrirVentana('Transporte inteligente', 'Implementación de vehículos eléctricos y sistemas de transporte interconectados.')" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">Ver más</button>
+                    </div>
+                    <div class="carousel-item" style="transform: rotateY(270deg) translateZ(400px);">
+                        <h2>Salud Digital</h2>
+                        <div class="separator"></div>
+                        <i class="fas fa-heartbeat"></i>
+                        <p>Tecnología en la medicina.</p>
+                        <button class="tramites-boton" onclick="abrirVentana('Salud Digital', 'Telemedicina y digitalización de historiales clínicos para mejorar la atención.')" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">Ver más</button>
+                    </div>
+                </div>
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="cerrarVentana()">&times;</span>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </section>
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div id="slider"></div>
+                <button class="nav-arrow prev-arrow">‹</button>
+                <button class="nav-arrow next-arrow">›</button>
+            </div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    
+        <div class="overlay" id="overlay">
+            <div class="modal-box">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalText"></p>
+            </div>
+        </div>
+
+        <!--Seccion de Cordoba Invisible-->
+        <section id="Córdoba-Invisible">
+            <h1>📌 Córdoba Invisible</h1>
+            <p>
+                Hay una Córdoba que el peronismo esconde. Una ciudad donde el abandono es total y la miseria es la 
+                única política de Estado. Barrios enteros sin luz, sin cloacas, sin transporte y sin seguridad.
+            </p>
+            <p>
+                Zonas donde los colectivos no entran porque las calles están destruidas o porque los choferes tienen miedo. 
+                Donde las ambulancias no llegan y los vecinos no tienen ni un centro de salud en condiciones. 
+                Lugares donde el narcotráfico manda, la violencia es cotidiana y el Estado hace décadas que desapareció.
+            </p>
+            <p><strong>📍 Esto no es exageración. Es la realidad que vamos a mostrar.</strong></p>
+            
+            <div class="gallery-container">
+                <p>En Córdoba Invisible, voy a meterme en los barrios que nadie quiere ver. 
+                Con el testimonio de los vecinos, recorriendo las calles, documentando cada abandono y cada injusticia.</p>
+                <div class="gallery">
+                    <div class="gallery-item"><img src="Resources/barrio1.jpg" alt="Barrio sin luz"></div>
+                    <div class="gallery-item"><img src="Resources/barrio2.jpg" alt="Calle destruida"></div>
+                    <div class="gallery-item"><img src="Resources/barrio3.jpg" alt="Vecinos denunciando"></div>
+                </div>
+            </div>
+            
+            <p><strong>📢 Porque el primer paso para cambiar esta realidad es mostrarla.</strong></p>
+            <!--[<button class="discover-button" onclick="verMasHistorias()">Descubrí lo que no quieren que veas</button>]-->
+            <a href="mantenimiento.html" class="btn" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">Descubrí lo que no quieren que veas</a>
+        </section>
+        
+        
+        <!--Seccion de Consejo Deliberante-->
+        <section id="Concejo Deliberante">
+            <h1>Concejo Deliberante</h1>
+            <h2>Soy Concejal y Vicepresidente Tercero del Concejo Deliberante</h1>
+            <p>Mi trabajo es claro: <span class="highlight">controlar al oficialismo, frenar abusos y presentar proyectos</span> que realmente mejoren la ciudad. Para eso me votaron los cordobeses.</p>
+            <p>📢 <span class="highlight">Las puertas están abiertas.</span> Cada cordobés puede sumar su voz y ser parte del cambio. ¡Trabajemos juntos por una Córdoba mejor!</p>
+            <div class="cards-container">
+                <!-- Tarjeta Proyectos -->
+                <div class="card">
+                    <h2>Proyectos</h2>
+                    <div class="divider"></div>
+                    <i class="fa fa-cogs"></i> <!-- Ícono de FontAwesome -->
+                    <a href="mantenimiento.html" class="btn">Ir a Proyectos</a>
+                </div>
+        
+                <!-- Tarjeta Oficina Abierta -->
+                <div class="card">
+                    <h2>Oficina Abierta</h2>
+                    <div class="divider"></div>
+                    <i class="fa fa-building"></i> <!-- Ícono de FontAwesome -->
+                    <a href="mantenimiento.html" class="btn">Ir a Oficina Abierta</a>
+                </div>
+        
+                <!-- Tarjeta Articulo 111 -->
+                <div class="card">
+                    <h2>Articulo 111</h2>
+                    <div class="divider"></div>
+                    <i class="fa fa-file-alt"></i> <!-- Ícono de FontAwesome -->
+                    <a href="mantenimiento.html" class="btn">Ir a Articulo 111</a>
+                </div>
+        
+                <!-- Tarjeta Pedido de Informes -->
+                <div class="card">
+                    <h2>Pedido de Informes</h2>
+                    <div class="divider"></div>
+                    <i class="fa fa-question-circle"></i> <!-- Ícono de FontAwesome -->
+                    <a href="mantenimiento.html" class="btn">Ir a Pedido de Informes</a>
+                </div>
+            </div>
+        </section>
+        <!--Seccion del Frente Civico-->
+        <section id="frente-civico">
+            <div class="container-fc">
+                <img src="Resources/1024px-Logo_Frente_Civico_de_Cor.png" alt="Logo del Frente Cívico" class="logo-fc">
+                <h2 class="header-fc">Frente Cívico</h2>
+                <p class="oposicion-fc">La única oposición real al peronismo en Córdoba.</p>
+                <p>Hace 25 años que gobiernan con corrupción, abandono e inseguridad. Córdoba hoy es tierra de nadie. Mientras ellos se enriquecen con sobreprecios y negociados, los barrios están destruidos, las calles sin luz y los vecinos con miedo de salir a la calle.
+
+                    El Frente Cívico nació para frenar este saqueo. No hablamos, actuamos. Frenamos la compra de uniformes de la Guardia Urbana con sobreprecios a una empresa amiga y logramos que el peronismo compre 600 autos en vez de 400, ahorrando millones a los cordobeses. Cada acto de corrupción que encontramos, lo denunciamos y lo frenamos.
+                    
+                    Hoy, como Presidente de Junta Capital, trabajo todos los días en los barrios, renovando la forma de hacer política con una estructura dinámica, real y cercana a la gente. El Frente Cívico no tiene solo una sede, tiene decenas de locales en casas y garajes que los vecinos abren para que esta lucha siga creciendo.</p>
+                <div class="content-fc">
+                    <div class="left-fc">
+                        <h3>¿Cómo podés sumarte?</h3>
+                        <ul>
+                            <li>Militá por una Córdoba distinta.</li>
+                            <li>Usá las herramientas que brindamos:</li>
+                            <ul>
+                                <li>Centro de Atención Ciudadana</li>
+                                <li>Cursos de oficios y alfabetización</li>
+                                <li>Apoyo escolar y acompañamiento a familias</li>
+                            </ul>
+                        </ul>
+                        <p>No nos financian empresarios ni nos compran con pauta publicitaria.</p>
+                    </div>
+                    <div class="right-fc">
+                        <h3>Dejanos tus datos y sumate a nuestra lucha</h3>
+                        <form action="#" method="post">
+                            <input type="text" name="nombre" placeholder="Nombre y apellido" required>
+                            <input type="email" name="email" placeholder="Correo electrónico" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono">
+                            <textarea name="mensaje" placeholder="Dejanos tu mensaje"></textarea>
+                            <button type="submit">Enviar</button>
+                        </form>
+                        <h3>¿De qué seccional sos?</h3>
+                        <input type="text" id="buscador" placeholder="Ingresá tu dirección o barrio">
+                        <button type="button">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Seccion de Estudio Juridico-->
+        <section id="estudio-juridico">
+            <h2>Estudio Jurídico</h2>
+            <p>Desde siempre, tuve una vocación clara: defender la justicia y enfrentar la impunidad.</p>
+            <p><strong>Abogado penalista</strong> graduado con honores en la Universidad Nacional de Córdoba, con una sólida formación en:</p>
+            <ul>
+                <li>Maestría en Derecho Procesal.</li>
+                <li>Especialización en Teoría del Delito y Responsabilidad Penal de Personas Jurídicas.</li>
+                <li>Diplomatura en Derecho Penal.</li>
+            </ul>
+            <p>Hoy formo parte del estudio jurídico <strong>Juez Andrada y Asociados</strong>, donde trabajo tanto con personas como con empresas y organizaciones, logrando una alta tasa de éxito.</p>
+        
+            <h3>Casos de Éxito</h3>
+            <div class="carrusel">
+                <img src="imagen1.jpg" alt="Imagen 1">
+                <img src="imagen2.jpg" alt="Imagen 2">
+                <img src="imagen3.jpg" alt="Imagen 3">
+            </div>
+        
+            <div class="contacto-container">
+                <div class="mapa">
+                    <h3>Encontranos en</h3>
+                    <p>📍 Dirección: [Dirección del Estudio]</p>
+                    <iframe src="https://www.google.com/maps/embed?..." allowfullscreen="" loading="lazy"></iframe>
+                </div>
+        
+                <div class="formulario">
+                    <h3>Contactanos</h3>
+                    <p>📢 Porque la justicia no es solo un principio, es una convicción.</p>
+                    <form>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+        
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+        
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Botón flotante de WhatsApp -->
+        <div class="whatsapp-container">
+            <div class="whatsapp-button" id="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <!-- Chat emergente -->
+            <div class="whatsapp-chat" id="whatsapp-chat">
+                <div class="chat-header">
+                    <span>💬 Chatea con nosotros</span>
+                    <button id="close-chat">✖</button>
+                </div>
+                <div class="chat-body">
+                    <p>¡Hola! ¿Cómo podemos ayudarte?</p>
+                    <textarea id="whatsapp-message" placeholder="Escribe tu mensaje..."></textarea>
+                    <button id="send-whatsapp">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--Seccion Pie de pagina-->
+    <footer>
+        <h1>Seguime en las redes</h1>
+        <div class="social-media">
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </div>
+        <p>&copy;2025 - Martín Juez</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="wsp.js"></script>
+</body>
+</html>
