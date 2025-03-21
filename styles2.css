@@ -1,0 +1,148 @@
+/*seccion de proyectos*/
+.tramites-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.tramites-titulo {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.tramites-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tramite-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tramite-card:hover {
+    transform: translateY(-5px);
+}
+
+.tramite-card i {
+    font-size: 3rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.tramite-card p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.tramites-boton {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #dc2074;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tramites-boton:hover {
+    background-color: #db4d8d;
+}
+
+/* Estilos para la ventana emergente */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+@media (max-width: 1024px) {
+    .tramites-grid {
+        grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas */
+        grid-template-rows: auto;
+    }
+
+    .modal-content {
+        width: 70%; /* Hace la ventana emergente más grande en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .tramites-grid {
+        grid-template-columns: 1fr; /* Solo una columna en pantallas pequeñas */
+    }
+
+    .tramite-card {
+        padding: 15px; /* Reduce el padding para aprovechar el espacio */
+    }
+
+    .tramites-titulo {
+        font-size: 1.8rem; /* Reduce el tamaño del título */
+    }
+
+    .modal-content {
+        width: 85%; /* Ajusta el tamaño de la ventana emergente */
+    }
+}
+
+@media (max-width: 480px) {
+    .tramites-titulo {
+        font-size: 1.5rem; /* Ajusta el título aún más en móviles */
+    }
+
+    .tramite-card i {
+        font-size: 2.5rem; /* Reduce el tamaño del icono */
+    }
+
+    .tramite-card p {
+        font-size: 0.9rem; /* Ajusta el tamaño del texto */
+    }
+
+    .tramites-boton {
+        width: 100%; /* Hace el botón de trámites más accesible */
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        width: 90%; /* Mayor aprovechamiento del espacio en móviles */
+        padding: 15px;
+    }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Resources/logo.png">
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Logo de Oficina Abierta */
+        .office-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .calendar-container {
+            width: 90vw; 
+            max-width: 1000px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            border-radius: 15px;
+        }
+
+        #calendar-frame {
+            width: 100%;
+            height: 800px; /* Ajusta según necesites */
+            border: none;
+            overflow: hidden; /* Evita el scroll */
+            display: block;
+        }
+
+        .call-to-action-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .office-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            text-align: left;
+        }
+
+        .office-text {
+            max-width: 500px;
+            font-size: 18px;
+            color: white;
+        }
+
+        /* Responsividad */
+        @media (max-width: 1024px) {
+            #calendar-frame {
+                height: 700px; /* Ajuste para tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .office-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .office-text {
+                max-width: 100%;
+            }
+
+            .calendar-container {
+                width: 95vw; /* Más ancho en pantallas pequeñas */
+            }
+
+            #calendar-frame {
+                height: 600px; /* Ajuste para móviles */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #calendar-frame {
+                height: 500px; /* Ajuste para teléfonos pequeños */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="Resources/logo2.png" alt=""></a>
+            <button onclick="history.back()" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Volver
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="office-section">
+            <div class="office-header">
+                <img src="Resources/Oficina Abierta - Negativo - 001_20250305_123213_0000.png" alt="Oficina Abierta" class="office-logo">
+                <div class="office-text">
+                    <p><strong>Tu voz tiene un lugar.</strong> Oficina Abierta es el espacio donde cada cordobés puede acercarse al Concejo Deliberante, plantear sus inquietudes y, junto a Martín, buscar soluciones reales a los problemas de la ciudad.</p>
+                </div>
+                <h2 class="call-to-action-title">📢 Sumate y hacé escuchar tu voz</h2>
+            </div>
+            <div class="calendar-container">
+                <iframe id="calendar-frame" src="https://calendly.com/martinjuez/30min" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </section>
+    </main>
+    <!--Seccion Pie de pagina-->
+    <footer>
+        <h1>Seguime en las redes</h1>
+        <div class="social-media">
+            <li><a href="https://www.facebook.com/share/15qn6zXern/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/martinjuezcorte?igsh=MTl5NG8yejJwYTdpMA==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://x.com/MartinJuez?t=uuHMliuKUxrPIGkzJwwz6Q&s=08 " target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.tiktok.com/@martinjuezcorte?_t=ZM-8urrfnaLIxy&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://ar.linkedin.com/in/martin-juez-corte-59a819218" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </div>
+        <p>&copy;2025 - Martín Juez</p>
+    </footer>
+    <script>
+        function resizeIframe() {
+            const iframe = document.getElementById("calendar-frame");
+            if (iframe) {
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
+            }
+        }
+    
+        window.addEventListener("message", function (event) {
+            if (event.data && event.data.event === "calendly.event_scheduled") {
+                resizeIframe();
+            }
+        });
+    </script>
+</body>
+</html>

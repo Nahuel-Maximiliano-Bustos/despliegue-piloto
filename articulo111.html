@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reclamo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Resources/logo.png">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.267);
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #map {
+            height: 300px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background: #dc2074;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b81a5a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="Resources/logo2.png" alt="Logo"></a>
+            <button onclick="history.back()">Volver</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Formulario de Reclamo</h2>
+            <form id="claimForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="email">Email (Opcional):</label>
+                <input type="email" id="email" name="email">
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Escribe una dirección" required>
+                <div id="map"></div>
+                <button type="button" id="buscarDireccion">Buscar</button>
+
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+                <label for="archivo">Adjuntar archivos:</label>
+                <input type="file" id="archivo" name="archivo" multiple>
+
+                <button type="submit">Enviar Reclamo</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h1>Seguime en las redes</h1>
+        <div class="social-media">
+            <li><a href="https://www.facebook.com/share/15qn6zXern/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/martinjuezcorte?igsh=MTl5NG8yejJwYTdpMA==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://x.com/MartinJuez?t=uuHMliuKUxrPIGkzJwwz6Q&s=08 " target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.tiktok.com/@martinjuezcorte?_t=ZM-8urrfnaLIxy&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://ar.linkedin.com/in/martin-juez-corte-59a819218" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </div>
+        <p>&copy;2025 - Martín Juez</p>
+    </footer>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let form = document.getElementById("claimForm");
+            let direccionInput = document.getElementById("direccion");
+            let buscarDireccionBtn = document.getElementById("buscarDireccion");
+
+            let map = L.map('map').setView([-31.417, -64.183], 13); // Córdoba Capital
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+        
+            let marker = L.marker([-31.417, -64.183], { draggable: true }).addTo(map);
+        
+            function getAddress(lat, lng) {
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.display_name) {
+                            direccionInput.value = data.display_name;
+                        }
+                    })
+                    .catch(error => console.error("Error obteniendo la dirección:", error));
+            }
+        
+            function searchAddress(address) {
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            let lat = data[0].lat;
+                            let lon = data[0].lon;
+                            map.setView([lat, lon], 15);
+                            marker.setLatLng([lat, lon]);
+                        } else {
+                            alert("Dirección no encontrada");
+                        }
+                    })
+                    .catch(error => console.error("Error buscando dirección:", error));
+            }
+        
+            marker.on("dragend", function (event) {
+                let latLng = event.target.getLatLng();
+                getAddress(latLng.lat, latLng.lng);
+            });
+        
+            map.on("click", function (event) {
+                marker.setLatLng(event.latlng);
+                getAddress(event.latlng.lat, event.latlng.lng);
+            });
+        
+            buscarDireccionBtn.addEventListener("click", function () {
+                searchAddress(direccionInput.value);
+            });
+        
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+            
+                let formData = new FormData(form);
+                formData.append("latitud", marker.getLatLng().lat);
+                formData.append("longitud", marker.getLatLng().lng);
+            
+                fetch("guardar_reclamo.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert("Reclamo enviado con éxito.");
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
+</body>
+</html>

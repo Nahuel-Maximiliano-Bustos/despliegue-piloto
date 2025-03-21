@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/png" href="Resources/logo.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="Resources/logo2.png" alt=""></a>
+            <button onclick="history.back()" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Volver
+            </button>
+        </nav>
+    </header>
+    <main>
+
+        <section class="tramites-container">
+            <h2 class="tramites-titulo">Proyectos Presentados</h2>
+            <div class="tramites-grid" id="tramitesGrid"></div>
+    
+            <button class="tramites-boton" id="toggleVerMas">Ver más proyectos</button>
+        </section>
+    
+        <!-- Ventana emergente -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal()">&times;</span>
+                <h3 id="modal-titulo"></h3>
+                <p id="modal-descripcion"></p>
+            </div>
+        </div>
+    </main>
+
+    <!--Seccion Pie de pagina-->
+    <footer>
+        <h1>Seguime en las redes</h1>
+        <div class="social-media">
+            <li><a href="https://www.facebook.com/share/15qn6zXern/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/martinjuezcorte?igsh=MTl5NG8yejJwYTdpMA==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://x.com/MartinJuez?t=uuHMliuKUxrPIGkzJwwz6Q&s=08 " target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.tiktok.com/@martinjuezcorte?_t=ZM-8urrfnaLIxy&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://ar.linkedin.com/in/martin-juez-corte-59a819218" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </div>
+        <p>&copy;2025 - Martín Juez</p>
+    </footer>
+    <script src="tramites.js"></script>
+</body>
+</html>

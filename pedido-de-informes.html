@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Proyectos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Resources/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #proyectos {
+            padding: 20px;
+        }
+
+        #lista-proyectos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .proyecto-card {
+            background: white;
+            color: #001F71;
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid #001F71;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .proyecto-card i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #001F71;
+        }
+
+        .proyecto-card:hover {
+            background: #E3EFFF;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            background: #DC2074;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #001F71;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="Resources/logo2.png" alt=""></a>
+            <button onclick="history.back()" style="padding: 10px 15px; background-color: #dc2074; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Volver
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Pedidos de Informes Realizados</h1>
+        <section id="proyectos">
+            <div id="lista-proyectos"></div>
+        </section>
+    
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal()">&times;</span>
+                <h2 id="modal-titulo"></h2>
+                <p id="modal-descripcion"></p>
+                <button id="ver-pdf" class="btn">Abrir documento</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h1>Seguime en las redes</h1>
+        <div class="social-media">
+            <li><a href="https://www.facebook.com/share/15qn6zXern/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/martinjuezcorte?igsh=MTl5NG8yejJwYTdpMA==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://x.com/MartinJuez?t=uuHMliuKUxrPIGkzJwwz6Q&s=08 " target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.tiktok.com/@martinjuezcorte?_t=ZM-8urrfnaLIxy&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://ar.linkedin.com/in/martin-juez-corte-59a819218" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </div>
+        <p>&copy;2025 - Martín Juez</p>
+    </footer>
+    <script>
+        const proyectos = [
+            { nombre: "Concesiones BIOCBA", desc: "Modificación del código administrativo municipal.", pdf: "Resources/documentos/informes/Concesiones BIOCBA_.docx.pdf", icon: "fa-handshake" },
+            { nombre: "Gastos Comunicación y Marketing BIOCBA", desc: "Gestión de permisos para obras privadas.", pdf: "Resources/documentos/informes/Gastos COM y MKT BIOCBA_.docx.pdf", icon: "fa-chart-line" },
+            { nombre: "Muertes traslados BIOCBA", desc: "Gestión de permisos para obras privadas.", pdf: "Resources/documentos/informes/muertes_ traslados BIOCBA_.docx.pdf", icon: "fa-ambulance" },
+            { nombre: "Obras BIOCBA", desc: "Gestión de permisos para obras privadas.", pdf: "Resources/documentos/informes/OBRAS BIOCBA_.docx.pdf", icon: "fa-hard-hat" },
+            { nombre: "Plan Maestro BIOCBA", desc: "Gestión de permisos para obras privadas.", pdf: "Resources/documentos/informes/PLAN MAESTRO BIOCBA_.docx.pdf", icon: "fa-map" },
+            { nombre: "Predio Sanidad Animal BIOCBA", desc: "Gestión de permisos para obras privadas.", pdf: "Resources/documentos/informes/Predio Sanidad Animal BIOCBA_.docx.pdf", icon: "fa-paw" },
+            { nombre: "Software Transparencia BIOCBA", desc: "Actualización de normas de tránsito.", pdf: "Resources/documentos/informes/SOFTWARE TRANSPARENCIA BIOCBA PYTO ORDENANZA.docx.pdf", icon: "fa-laptop-code" }
+        ];
+        function cargarProyectos() {
+            const lista = document.getElementById("lista-proyectos");
+            lista.innerHTML = "";
+
+            proyectos.forEach((proyecto) => {
+                const div = document.createElement("div");
+                div.classList.add("proyecto-card");
+                div.innerHTML = `<i class="fas ${proyecto.icon}"></i><h3>${proyecto.nombre}</h3>`;
+                div.onclick = () => mostrarDetalles(proyecto);
+                lista.appendChild(div);
+            });
+        }
+
+        function mostrarDetalles(proyecto) {
+            document.getElementById("modal-titulo").innerText = proyecto.nombre;
+            document.getElementById("modal-descripcion").innerText = proyecto.desc;
+            document.getElementById("ver-pdf").onclick = () => window.open(proyecto.pdf, "_blank");
+
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", cargarProyectos);
+    </script>
+</body>
+</html>
